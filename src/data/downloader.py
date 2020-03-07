@@ -4,7 +4,7 @@ import shutil
 from src.utils.geo import deg2num
 
 def get_tile(lat=[22.946139, 23.327514], lon=[77.040589, 77.5119181], zoom=14, root="data/"):
-    """
+    """Download tiles to local directory.
     
     Parameters
     ----------
@@ -14,9 +14,6 @@ def get_tile(lat=[22.946139, 23.327514], lon=[77.040589, 77.5119181], zoom=14, r
         Longitude boundaries in degrees
     zoom: int
         zoom level
-
-    Returns
-    -------
 
     """
     _, _x, _y = np.array([deg2num(zoom, _lat, _lon) for _lat, _lon in zip(lat, lon)]).T
