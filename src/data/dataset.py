@@ -42,14 +42,13 @@ def load_and_preprocess_image(x, label):
     # Normalize pixel values
     image = tf.math.divide(image, tf.constant(255, dtype=tf.float32))
 
-    # Crop
+    # Original: central crop
     original = tf.image.central_crop(image, central_fraction=0.5) # TODO: should depend on image size
 
-    # Augment and crop
+    # Augmented: random crop and rotation
     augmented = tf.image.rot90(image, k=tf.random.uniform(shape=[],
                                                           minval=0, maxval=4,
                                                           dtype=tf.int32, seed=42))
-    # augmented = tf.image.central_crop(augmented, central_fraction=0.5)
     augmented = tf.image.random_crop(augmented, size=[128, 128, 3])
 
     return (original, label), (augmented, label)
