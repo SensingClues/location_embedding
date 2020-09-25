@@ -3,5 +3,5 @@ pandas
 jupyter
 #pillow
 setuptools==45.2.0
-tensorflow==2.1.0
+tensorflow==1.15.4
 tensorflow-addons==0.8.3
